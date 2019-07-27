@@ -1,0 +1,10 @@
+﻿<header>
+    @Html.ActionLink("Management System", "Index", "Home", new { area = "" }, new { @class = "home-link" })
+    <div id="tabs">
+        @Html.ActionLink("Customers", "Customers", "Home", new { area = "" }, new { @class = ViewBag.ActiveTab == "Customers" ? "active" : string.Empty })
+        @Html.ActionLink("Customer Roles", "CustomerRoles", "Home", new { area = "" }, new { @class = ViewBag.ActiveTab == "CustomerRoles" ? "active" : string.Empty })
+    </div>
+    @Html.Partial("AccountPartial")
+</header>
+
+@Scripts.Render("~/bundles/jquery")

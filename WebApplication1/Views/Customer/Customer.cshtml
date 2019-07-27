@@ -1,0 +1,155 @@
+﻿@using WebApplication1.Models;
+@using WebApplication1.Helpers;
+
+@model CustomerViewModel
+@{
+    ViewBag.Title = "Customer";
+    ViewBag.ActiveTab = "Customers";
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - Management system</title>
+    @Styles.Render("~/Content/Customer/css")
+</head>
+<body>
+    @Html.Partial("HeaderPartial")
+
+    <div class="container">
+        <h4>Details</h4>
+        <div class="buttons">
+            <input type="submit" class="button left" value="Save" form="customerForm" />
+            <input type="button" class="button right" value="Cancel" onclick="cancel()" />
+        </div>
+        @using (Html.BeginForm(string.IsNullOrEmpty(Model?.CustomerId) ? "Create" : "Edit", "Customer", FormMethod.Post, new { @id = "customerForm", @class = "main-area", role = "form" }))
+        {
+            <div class="head"></div>
+            <div class="controls-wrapper">
+                @Html.HiddenFor(m => m.CustomerId)
+                <div class="form-group">
+                    @Html.LabelFor(m => m.Login)
+                    @Html.TextBoxFor(m => m.Login, new
+                    {
+                        @class = "form-control",
+                        @required = true,
+                        @minlength = MyValidationHelper.LoginMin,
+                        @maxlength = MyValidationHelper.LoginMax,
+                        @pattern = MyValidationHelper.LoginPattern,
+                        @value = Model?.Login ?? string.Empty,
+                        @title = "The login can contain letters, numbers, and symbols - underscore and period",
+                    })
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(m => m.Password)
+                    @Html.PasswordFor(m => m.Password, new
+                    {
+                        @class = "form-control",
+                        @required = true,
+                        @minlength = MyValidationHelper.PasswordMin,
+                        @maxlength = MyValidationHelper.PasswordMax,
+                    })
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(m => m.ConfirmPassword)
+                    @Html.PasswordFor(m => m.ConfirmPassword, new
+                    {
+                        @class = "form-control",
+                        @required = true,
+                        @minlength = MyValidationHelper.PasswordMin,
+                        @maxlength = MyValidationHelper.PasswordMax,
+                    })
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(m => m.FirstName)
+                    @Html.TextBoxFor(m => m.FirstName, new
+                    {
+                        @class = "form-control",
+                        @required = true,
+                        @maxlength = MyValidationHelper.NameMax,
+                        @value = Model?.FirstName ?? string.Empty,
+                    })
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(m => m.LastName)
+                    @Html.TextBoxFor(m => m.LastName, new
+                    {
+                        @class = "form-control",
+                        @required = true,
+                        @maxlength = MyValidationHelper.NameMax,
+                        @value = Model?.LastName ?? string.Empty,
+                    })
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(m => m.Email)
+                    @Html.TextBoxFor(m => m.Email, new
+                    {
+                        @class = "form-control",
+                        @type = "email",
+                        @maxlength = MyValidationHelper.EmailMax,
+                        @value = Model?.Email ?? string.Empty
+                    })
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(m => m.Phone)
+                    @Html.TextBoxFor(m => m.Phone, new
+                    {
+                        @class = "form-control",
+                        @maxlength = MyValidationHelper.PhoneMax,
+                        @pattern = MyValidationHelper.PhonePattern,
+                        @value = Model?.Phone ?? string.Empty,
+                    })
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(m => m.Roles, new { @for = "roles" })
+                    <select class="form-control" id="roles" name="Roles" multiple required>
+                        @foreach (SelectListItem item in ViewBag.Roles)
+                        {
+                            <option value="@item.Value" @(item.Selected ? "selected" : "")>@item.Text</option>
+                        }
+                    </select>
+                </div>
+                <div class="form-group">
+                    @Html.CheckBoxFor(m => m.Active, new { @class = "form-control checkbox" })
+                    @Html.LabelFor(m => m.Active, new { @class = "checkbox" })
+                </div>
+            </div>
+            var errors = Html.ViewData.ModelState.Values.SelectMany(model => model.Errors);
+            <div class="errors @(errors.Count() == 0 ? "hidden" : "")">
+                @foreach (ModelError error in errors)
+                {
+                    <div class="text-danger">@error.ErrorMessage</div>
+                }
+            </div>
+        }
+        <div class="side-bar">
+            <div class="head">Stats</div>
+            <div class="row">
+                <span>@Html.DisplayNameFor(m => m.CreatedDate)</span>
+                <span>@(Model?.CreatedDate?.ToShortDateString() ?? "-")</span>
+            </div>
+            <div class="row">
+                <span>@Html.DisplayNameFor(m => m.CreatorName)</span>
+                <span>@(Model?.CreatorName ?? "-")</span>
+            </div>
+            <div class="row">
+                <span>@Html.DisplayNameFor(m => m.ChangedDate)</span>
+                <span>@(Model?.ChangedDate?.ToShortDateString() ?? "-")</span>
+            </div>
+            <div class="row">
+                <span>@Html.DisplayNameFor(m => m.ChangerName)</span>
+                <span>@(Model?.ChangerName ?? "-")</span>
+            </div>
+        </div>
+        <div class="buttons">
+            <input type="submit" class="button left" value="Save" form="customerForm" />
+            <input type="button" class="button right" value="Cancel" onclick="cancel()" />
+        </div>
+    </div>
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/customer")
+</body>
+</html>

@@ -1,0 +1,39 @@
+﻿header {
+    background-color: rgba(66, 131, 211, 1);
+    display: inline-block;
+    width: 100%;
+    position: relative;
+}
+
+header .home-link {
+    text-decoration: none;
+    font-size: 1.8em;
+    color: rgba(46, 103, 193, 1);
+    margin: 20px 0 15px 30px;
+    display: inline-block;
+}
+
+header #tabs {
+    height: 30px;
+    padding-left: 60px;
+}
+
+header #tabs a {
+    display: inline-flex;
+    align-items: center;
+    height: 100%;
+    background-color: rgba(97, 156, 230, 1);
+    color: rgba(0, 0, 0, 1);
+    float: left;
+    font-size: .9em;
+    text-decoration: none;
+    padding: 0 10px;
+    margin: 3px 3px 0 0;
+    box-sizing: border-box;
+}
+
+header #tabs a.active {
+    height: 33px;
+    margin-top: 0;
+    background-color: rgba(240, 240, 240, 1);
+}

@@ -1,0 +1,8 @@
+﻿@using Microsoft.AspNet.Identity
+@using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm", @class = "navbar-right" }))
+{
+    <div class="account-panel">
+        <span class="username">@User.Identity.GetUserName()</span>
+        <span><a href="javascript:document.getElementById('logoutForm').submit()">Logout</a></span>
+    </div>
+}

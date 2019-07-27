@@ -1,0 +1,81 @@
+﻿@{
+    ViewBag.Title = "Customers";
+    ViewBag.ActiveTab = "Customers";
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - Management system</title>
+    @Styles.Render("~/Content/Customers/css")
+</head>
+<body>
+    @Html.Partial("HeaderPartial")
+
+    <div class="container">
+        <h4>Edit Area</h4>
+        <div class="main-area">
+            <div class="controls">
+                <div class="control-buttons">
+                    <button class="select-all">Select All</button>
+                    <button class="delete-selected hidden">Delete Selected</button>
+                </div>
+                <div class="page-selection" id="pageSelection">
+                    <button class="first">prev</button>
+                    <div class="page-buttons"></div>
+                    <button class="last">next</button>
+                </div>
+            </div>
+            <div class="table-wrapper">
+                <table>
+                    <thead>
+                        <tr>
+                            <th><input type="checkbox" id="headerCheckbox"/></th>
+                            <th data-prop="login" class="sort-header">Login</th>
+                            <th data-prop="name" class="sort-header">Name</th>
+                            <th data-prop="email" class="sort-header">Email</th>
+                            <th data-prop="phone" class="sort-header">Phone</th>
+                            <th data-prop="active" class="sort-header center">Active</th>
+                            <th class="center">Edit/Delete</th>
+                        </tr>
+                    </thead>
+                    <tbody></tbody>
+                </table>
+            </div>
+            <div class="controls">
+                <div class="control-buttons">
+                    <button class="select-all">Select All</button>
+                    <button class="delete-selected hidden">Delete Selected</button>
+                </div>
+                <div class="page-selection" id="pageSelection">
+                    <button class="first">prev</button>
+                    <div class="page-buttons"></div>
+                    <button class="last">next</button>
+                </div>
+            </div>
+        </div>
+        <div class="side-bar">
+            <div class="side-bar-item">
+                <button id="createCustomerButton">Create customer</button>
+            </div>
+            <div class="side-bar-item">
+                <h4>Stats</h4>
+                <div class="row">
+                    <span>Total items</span>
+                    <span id="totalItems">0</span>
+                </div>
+            </div>
+            <form class="side-bar-item" id="searchForm">
+                <h4>Search</h4>
+                <input type="text" id="searchInput"/>
+                <input type="submit" id="searchButton" value="Search" />
+            </form>
+        </div>
+    </div>
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/customers")
+</body>
+</html>

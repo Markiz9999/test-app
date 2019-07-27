@@ -1,0 +1,92 @@
+﻿.main-area,
+.side-bar {
+    background-color: rgba(255, 255, 255, 1);
+}
+
+.head {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    height: 30px;
+    background-color: rgba(200, 200, 200, 1);
+    padding: 0 10px;
+    font-weight: bold;
+    color: rgba(120, 120, 120, 1);
+}
+
+.main-area .controls-wrapper {
+    width: 80%;
+    margin: 10px auto;
+    padding-left: 5%;
+    box-sizing: border-box;
+}
+
+.main-area .controls-wrapper .form-group {
+    width: 100%;
+    margin: 15px 0;
+    position: relative;
+}
+
+.main-area .controls-wrapper .form-group label {
+    max-width: 19%;
+    padding-right: 15px;
+    box-sizing: border-box;
+    color: rgba(150, 150, 150, 1);
+    font-size: .8em;
+    position: absolute;
+    transform: translateX(-100%);
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.main-area .controls-wrapper .form-group label.checkbox {
+    width: auto;
+    transform: translateX(0);
+    padding-right: 0;
+    padding-left: 15px;
+}
+
+.main-area .controls-wrapper .form-group .form-control {
+    grid-column: 2 / span 2;
+    width: 100%;
+}
+
+.main-area .controls-wrapper .form-group .form-control.checkbox {
+    width: auto;
+    grid-column: 2 / span 1;
+}
+
+.buttons {
+    display: inline-block;
+    width: 100%;
+    margin: 10px 0;
+    padding: 10px 15px;
+    background-color: rgba(200, 200, 200, 1);
+    box-sizing: border-box;
+}
+
+.buttons .left {
+    float: left;
+}
+
+.buttons .right {
+    float: right;
+}
+
+.errors {
+    width: 100%;
+    margin-top: 10px;
+    padding: 10px 10px;
+    color: rgba(200, 0, 0, 1);
+    box-sizing: border-box;
+}
+
+.errors.hidden {
+    display: none;
+}
+
+.errors .text-danger {
+    width: 100%;
+    text-align: center;
+}

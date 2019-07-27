@@ -1,0 +1,27 @@
+﻿.account-panel {
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: 10px 50px 0 0;
+    cursor: default;
+}
+
+.account-panel span {
+    color: rgba(255, 255, 255, 1);
+    padding: 0 10px;
+    border-right: 2px solid rgba(0, 88, 215, 1);
+    font-size: .9em;
+    float: left;
+}
+
+.account-panel span:last-child {
+    border: none;
+}
+
+.account-panel span a {
+    color: rgba(255, 255, 255, 1);
+}
+
+.account-panel span.username {
+    font-weight: bold;
+}

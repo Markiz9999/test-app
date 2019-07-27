@@ -1,0 +1,67 @@
+﻿html, body {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    display: inline-block;
+    background-color: rgba(240, 240, 240, 1);
+    font-family: Arial, Helvetica, sans-serif;
+    box-sizing: border-box;
+}
+
+.container {
+    display: inline-block;
+    width: 100%;
+    padding: 15px;
+    box-sizing: border-box;
+}
+
+h4 {
+    margin: 10px 0;
+    padding-left: 20px;
+}
+
+.main-area,
+.side-bar {
+    display: inline-block;
+    float: left;
+    overflow: hidden;
+    margin-top: 10px;
+    overflow: hidden;
+}
+
+.main-area {
+    width: 79%;
+    margin-right: 1%;
+}
+
+.side-bar {
+    width: 20%;
+    cursor: default;
+}
+
+.side-bar .row {
+    display: flex;
+    width: 100%;
+    margin: 10px 0;
+    padding: 0 10px;
+    justify-content: space-between;
+    box-sizing: border-box;
+    overflow: hidden;
+    color: rgba(100, 100, 100, 1);
+}
+
+.side-bar .row span {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+button,
+input[type="button"],
+input[type="submit"] {
+    cursor: pointer;
+}
